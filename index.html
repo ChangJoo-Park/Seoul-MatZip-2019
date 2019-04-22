@@ -12,6 +12,10 @@
   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
   crossorigin=""></script>
   <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
     #mapid {
       width: 100vw;
       height: 100vh;
@@ -21,7 +25,13 @@
 <body>
   <div id="mapid"></div>
   <script>
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+	 	var osmUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+	 	    osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	 	    osm = L.tileLayer(osmUrl, {
+	 	        maxZoom: 18,
+	 	        attribution: osmAttrib
+	 	    });
+	 	var map = L.map('mapid').setView([19.04469, 72.9258], 12).addLayer(osm);
   </script>
 </body>
 </html>
